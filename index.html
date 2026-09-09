@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f8eee9" />
+  <meta name="description" content="Особенное приглашение на свидание 13 сентября в 19:00." />
+  <title>Для тебя — особенное приглашение</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f8eee9;
+      --paper: #fffaf7;
+      --ink: #2d2422;
+      --muted: #806f6a;
+      --rose: #c97972;
+      --rose-dark: #a85450;
+      --line: rgba(90, 58, 51, .13);
+      --shadow: 0 24px 70px rgba(100, 65, 54, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 90% 4%, rgba(232, 177, 157, .35), transparent 24rem),
+        radial-gradient(circle at 0% 36%, rgba(255, 255, 255, .85), transparent 26rem),
+        var(--cream);
+      font-family: "DM Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page { overflow: hidden; }
+    .hero {
+      min-height: 100svh;
+      padding: max(28px, env(safe-area-inset-top)) 22px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      width: 280px; height: 280px;
+      border: 1px solid rgba(201, 121, 114, .25);
+      border-radius: 50%;
+      position: absolute; right: -120px; top: 120px; z-index: -1;
+    }
+    .topline {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1050px; width: 100%; margin: 0 auto;
+      color: var(--muted); font-size: .76rem; letter-spacing: .11em; text-transform: uppercase;
+    }
+    .heart { color: var(--rose); font-size: 1.35rem; line-height: 1; }
+    .hero-content { max-width: 1050px; width: 100%; margin: auto; padding: 75px 0 55px; }
+    .eyebrow { color: var(--rose-dark); font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    h1, h2 { font-family: "Playfair Display", serif; font-weight: 500; }
+    h1 {
+      font-size: clamp(3.5rem, 13vw, 8.2rem); line-height: .91; letter-spacing: -.055em;
+      max-width: 760px; margin: 24px 0 28px;
+    }
+    h1 em { color: var(--rose-dark); font-weight: 500; }
+    .hero-copy { max-width: 410px; color: var(--muted); font-size: 1.05rem; line-height: 1.65; }
+    .date-card {
+      display: inline-flex; align-items: center; gap: 18px; margin-top: 28px; padding: 15px 18px;
+      background: rgba(255, 250, 247, .68); border: 1px solid var(--line); border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(100, 65, 54, .06); backdrop-filter: blur(12px);
+    }
+    .date-card strong { display: block; font-size: 1.3rem; letter-spacing: -.03em; }
+    .date-card span { color: var(--muted); font-size: .83rem; }
+    .date-icon { font-size: 1.5rem; }
+    .scroll { color: var(--muted); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+    .scroll::after { content: "↓"; color: var(--rose); font-size: 1.2rem; margin-left: 10px; }
+
+    section { max-width: 1050px; margin: 0 auto; padding: 105px 22px; }
+    .section-label { color: var(--rose-dark); font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    h2 { font-size: clamp(2.5rem, 8vw, 5rem); line-height: .98; letter-spacing: -.05em; margin: 16px 0 42px; }
+    .message { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; }
+    .message p { margin: 0; font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.55; letter-spacing: -.025em; }
+    .message .small { color: var(--muted); font-size: 1rem; line-height: 1.7; }
+
+    .plan { background: var(--ink); color: var(--paper); border-radius: 28px; padding: 48px 34px; position: relative; overflow: hidden; }
+    .plan::after { content: "✦"; position: absolute; right: 34px; top: 21px; color: #d99588; font-size: 6rem; opacity: .4; }
+    .plan h2 { margin-top: 8px; color: var(--paper); }
+    .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .plan-item { border-top: 1px solid rgba(255,255,255,.18); padding-top: 18px; }
+    .plan-item b { display: block; color: #e6aaa0; font-size: .78rem; letter-spacing: .1em; margin-bottom: 12px; }
+    .plan-item span { display: block; font-size: 1.02rem; line-height: 1.5; }
+
+    .photos-intro { display:flex; justify-content:space-between; gap:20px; align-items:end; }
+    .photos-intro h2 { margin-bottom: 0; }
+    .photos-note { max-width: 270px; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+    .gallery { display: grid; grid-template-columns: 1.15fr .85fr; grid-template-rows: 240px 240px; gap: 14px; margin-top: 38px; }
+    .photo {
+      min-height: 180px; border-radius: 22px; overflow: hidden; position: relative; background: linear-gradient(135deg, #e3b8aa, #f4d8ca);
+      border: 1px solid rgba(90, 58, 51, .1); box-shadow: var(--shadow);
+    }
+    .photo:first-child { grid-row: span 2; }
+    .photo img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .5s ease; }
+    .photo:hover img { transform: scale(1.04); }
+    .placeholder { height:100%; min-height:180px; display:grid; place-content:center; text-align:center; padding:25px; color: rgba(65, 43, 37, .7); }
+    .placeholder strong { font-family: "Playfair Display", serif; font-size: 1.5rem; font-weight: 500; }
+    .placeholder span { font-size: .78rem; margin-top: 7px; }
+
+    .rsvp { text-align: center; padding-top: 75px; padding-bottom: 115px; }
+    .rsvp h2 { max-width: 680px; margin: 16px auto 22px; }
+    .rsvp p { color: var(--muted); margin: 0 auto 30px; max-width: 420px; line-height: 1.6; }
+    .button { display:inline-block; color:white; background:var(--rose-dark); border-radius: 999px; padding: 16px 25px; text-decoration:none; font-weight:700; font-size:.95rem; box-shadow: 0 13px 30px rgba(168,84,80,.22); transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); background:#8f4542; }
+    footer { padding: 24px 22px max(28px, env(safe-area-inset-bottom)); text-align:center; color:var(--muted); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; }
+
+    @media (max-width: 680px) {
+      .hero-content { padding-top: 90px; }
+      .message, .plan-grid { grid-template-columns: 1fr; gap: 30px; }
+      section { padding-top: 82px; padding-bottom: 82px; }
+      .plan { padding: 38px 25px; }
+      .photos-intro { display: block; }
+      .photos-note { margin-top: 18px; }
+      .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 250px 170px; }
+      .photo:first-child { grid-row: span 1; grid-column: span 2; }
+      .photo { border-radius: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="topline"><span>Личное приглашение</span><span class="heart">♡</span></div>
+      <div class="hero-content">
+        <div class="eyebrow">Для тебя, с любовью</div>
+        <h1>Давай устроим<br><em>вечер для двоих</em></h1>
+        <p class="hero-copy">Ты давно хотела именно такое свидание. Кажется, пришло время сделать его особенным.</p>
+        <div class="date-card"><span class="date-icon">◷</span><div><strong>13 сентября · 19:00</strong><span>Красиво оденемся и будем только вдвоём</span></div></div>
+      </div>
+      <div class="scroll">Листай, там всё самое важное</div>
+    </header>
+
+    <section>
+      <div class="section-label">Небольшое признание</div>
+      <div class="message">
+        <h2>Будет<br><em>прекрасно.</em></h2>
+        <div>
+          <p>Я хочу подарить тебе вечер, который мы будем вспоминать с улыбкой.</p>
+          <p class="small" style="margin-top:24px;">Нарядимся красиво, будем много смеяться, наслаждаться моментом и просто проведём замечательный вечер вместе. Без спешки. Без лишних слов. Только мы.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:20px;">
+      <div class="plan">
+        <div class="section-label">Наш план</div>
+        <h2>Три простых<br>шага к счастью</h2>
+        <div class="plan-grid">
+          <div class="plan-item"><b>01 · 19:00</b><span>Встречаемся и начинаем наш красивый вечер</span></div>
+          <div class="plan-item"><b>02 · Вечер</b><span>Вкусно ужинаем, разговариваем и смеёмся</span></div>
+          <div class="plan-item"><b>03 · Вместе</b><span>Наслаждаемся каждым моментом рядом друг с другом</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="photos-intro">
+        <div><div class="section-label">Наши моменты</div><h2>Немного<br><em>нас.</em></h2></div>
+        <p class="photos-note">Здесь будут наши любимые фотографии. Замени блоки ниже своими снимками — инструкция есть в README.</p>
+      </div>
+      <div class="gallery">
+        <!-- Замените каждый блок .placeholder на: <img src="images/photo-1.jpg" alt="Наш момент"> -->
+        <div class="photo"><div class="placeholder"><strong>Фото 01</strong><span>наш любимый момент</span></div></div>
+        <div class="photo"><div class="placeholder"><strong>Фото 02</strong><span>улыбка на память</span></div></div>
+        <div class="photo"><div class="placeholder"><strong>Фото 03</strong><span>только мы</span></div></div>
+      </div>
+    </section>
+
+    <section class="rsvp">
+      <div class="section-label">Самое главное</div>
+      <h2>Ты пойдёшь со мной<br><em>на свидание?</em></h2>
+      <p>Очень жду этот вечер. Обещаю, он будет именно таким, как ты хотела.</p>
+      <!-- Замените номер телефона в ссылке на свой -->
+      <a class="button" href="https://wa.me/70000000000?text=Конечно%20пойду%20на%20свидание%20%F0%9F%96%A4" target="_blank" rel="noopener">Ответить «да»</a>
+    </section>
+  </main>
+  <footer>Сделано специально для тебя · 13 сентября</footer>
+</body>
+</html>
